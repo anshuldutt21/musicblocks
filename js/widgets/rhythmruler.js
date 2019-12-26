@@ -156,6 +156,7 @@ function RhythmRuler () {
                 // FIXME: Should be based on meter
                 for (var i = 0; i < 4; i++) {
                     setTimeout(function () {
+			console.debug(that._logo.defaultBPMFactor / 16);
                         that._logo.synth.trigger(0, 'C4', that._logo.defaultBPMFactor / 16, drum, null, null);
                     }, interval * i / 4);
                 }
@@ -341,6 +342,7 @@ function RhythmRuler () {
             that._inLongPress = false;
 
             that._longPressBeep = setTimeout(function () {
+		console.debug(1 / 32);
                 that._logo.synth.trigger(0, 'C4', 1 / 32, 'chime', null, null);
 
                 var cell = that._mouseDownCell;
@@ -977,8 +979,10 @@ function RhythmRuler () {
             if (noteValue > 0) {
                 // console.debug(0 + ' C4 ' + that._logo.defaultBPMFactor / noteValue + ' ' + drum);
                 if (foundVoice) {
+		    console.debug(that._logo.defaultBPMFactor / noteValue);
                     that._logo.synth.trigger(0, 'C4', that._logo.defaultBPMFactor / noteValue, drum, null, null, false);
                 } else if (foundDrum) {
+		    console.debug(that._logo.defaultBPMFactor / noteValue);
                     that._logo.synth.trigger(0, ['C4'], that._logo.defaultBPMFactor / noteValue, drum, null, null);
                 }
             }
