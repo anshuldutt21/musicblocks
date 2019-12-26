@@ -966,10 +966,10 @@ function Activity() {
         setInterval(changeText, 2000);
 
         function changeText() {
-            var randomLoadMessage = messages.load_messages[Math.floor(Math.random() * messages.load_messages.length)];
+            var randomLoadMessage = loadMessages.load_messages[Math.floor(Math.random() * loadMessages.load_messages.length)];
             document.getElementById('messageText').innerHTML = randomLoadMessage + '...';
             counter++;
-            if (counter >= messages.load_messages.length) {
+            if (counter >= loadMessages.load_messages.length) {
                 counter = 0;
             }
         }
@@ -1025,15 +1025,15 @@ function Activity() {
             return;
         }
 
-      var ctx = myChart.getContext('2d');
+	var ctx = myChart.getContext('2d');
         loading = true;
         document.body.style.cursor = 'wait';
-        doLoadAnimation();
-      var myRadarChart = null;
-      var  scores = analyzeProject(blocks);
-      var data = scoreToChartData(scores);
-      var  Analytics = this;
-      Analytics.close = th.closeAnalytics;
+        // doLoadAnimation();
+	var myRadarChart = null;
+	var  scores = analyzeProject(blocks);
+	var data = scoreToChartData(scores);
+	var  Analytics = this;
+	Analytics.close = th.closeAnalytics;
 
         __callback = function () {
             imageData = myRadarChart.toBase64Image();
